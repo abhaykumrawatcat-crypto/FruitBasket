@@ -1,0 +1,326 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f8f5;
+    color: #172018;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+
+    background: white;
+
+    border-bottom: 1px solid #e8ebe5;
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.delivery-text {
+    color: #667066;
+    font-size: 14px;
+}
+
+
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+
+.hero {
+    background: #172018;
+    color: white;
+
+    border-radius: 24px;
+
+    padding: 50px;
+
+    margin-bottom: 40px;
+}
+
+
+.status {
+    display: inline-block;
+
+    background: #e5f7e8;
+    color: #237a32;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    margin-bottom: 25px;
+}
+
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+
+.hero p {
+    color: #d6ddd5;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    max-width: 600px;
+
+    margin-bottom: 25px;
+}
+
+
+.order-time {
+    display: inline-block;
+
+    padding: 12px 18px;
+
+    background: rgba(255,255,255,0.1);
+
+    border-radius: 10px;
+
+    font-size: 14px;
+}
+
+
+.products h2 {
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+
+.fruit-card {
+    display: flex;
+
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #e6e9e4;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    margin-bottom: 12px;
+}
+
+
+.fruit-icon {
+    font-size: 40px;
+
+    width: 65px;
+}
+
+
+.fruit-info {
+    flex: 1;
+}
+
+
+.fruit-info h3 {
+    font-size: 18px;
+
+    margin-bottom: 5px;
+}
+
+
+.fruit-info p {
+    color: #687168;
+}
+
+
+.quantity {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.quantity button {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid #dfe3dd;
+
+    background: white;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+.quantity button:hover {
+    background: #f0f3ee;
+}
+
+
+.quantity span {
+    min-width: 25px;
+
+    text-align: center;
+
+    font-weight: bold;
+}
+
+
+.order-summary {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: white;
+
+    padding: 25px;
+
+    margin-top: 30px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e6e9e4;
+}
+
+
+.order-summary span {
+    display: block;
+
+    color: #687168;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+
+.order-summary strong {
+    font-size: 28px;
+}
+
+
+.order-button {
+    border: none;
+
+    background: #172018;
+
+    color: white;
+
+    padding: 15px 25px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.order-button:hover {
+    background: #2c382e;
+}
+
+
+footer {
+    text-align: center;
+
+    padding: 40px 20px;
+
+    color: #788078;
+
+    font-size: 14px;
+}
+
+
+footer p {
+    margin-bottom: 8px;
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 18px 20px;
+    }
+
+    .delivery-text {
+        display: none;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .hero {
+        padding: 30px 25px;
+
+        border-radius: 18px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .fruit-card {
+        padding: 15px;
+    }
+
+    .fruit-icon {
+        font-size: 30px;
+
+        width: 50px;
+    }
+
+    .quantity {
+        gap: 8px;
+    }
+
+    .quantity button {
+        width: 34px;
+        height: 34px;
+    }
+
+    .order-summary {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 20px;
+    }
+
+    .order-button {
+        width: 100%;
+    }
+
+}

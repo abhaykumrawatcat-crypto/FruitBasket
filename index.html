@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FruitBasket</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            🍎 FruitBasket
+        </div>
+
+        <div class="delivery-text">
+            Fresh every Saturday
+        </div>
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <div class="status">
+                🟢 Orders Open
+            </div>
+
+            <h1>
+                Fresh fruits.<br>
+                Delivered every Saturday.
+            </h1>
+
+            <p>
+                Order your favourite fruits before Saturday morning
+                and we'll bring them straight to your door.
+            </p>
+
+            <div class="order-time">
+                Friday 8:00 PM → Saturday 8:00 AM
+            </div>
+
+        </section>
+
+
+        <section class="products">
+
+            <h2>This week's fruits</h2>
+
+            <div class="fruit-card">
+
+                <div class="fruit-icon">
+                    🍎
+                </div>
+
+                <div class="fruit-info">
+                    <h3>Apples</h3>
+                    <p>₹120 / kg</p>
+                </div>
+
+                <div class="quantity">
+                    <button onclick="changeQuantity('apple', -1)">−</button>
+
+                    <span id="apple-quantity">0</span>
+
+                    <button onclick="changeQuantity('apple', 1)">+</button>
+                </div>
+
+            </div>
+
+
+            <div class="fruit-card">
+
+                <div class="fruit-icon">
+                    🍌
+                </div>
+
+                <div class="fruit-info">
+                    <h3>Bananas</h3>
+                    <p>₹60 / dozen</p>
+                </div>
+
+                <div class="quantity">
+                    <button onclick="changeQuantity('banana', -1)">−</button>
+
+                    <span id="banana-quantity">0</span>
+
+                    <button onclick="changeQuantity('banana', 1)">+</button>
+                </div>
+
+            </div>
+
+
+            <div class="fruit-card">
+
+                <div class="fruit-icon">
+                    🍊
+                </div>
+
+                <div class="fruit-info">
+                    <h3>Oranges</h3>
+                    <p>₹90 / kg</p>
+                </div>
+
+                <div class="quantity">
+                    <button onclick="changeQuantity('orange', -1)">−</button>
+
+                    <span id="orange-quantity">0</span>
+
+                    <button onclick="changeQuantity('orange', 1)">+</button>
+                </div>
+
+            </div>
+
+
+            <div class="fruit-card">
+
+                <div class="fruit-icon">
+                    🍇
+                </div>
+
+                <div class="fruit-info">
+                    <h3>Grapes</h3>
+                    <p>₹140 / kg</p>
+                </div>
+
+                <div class="quantity">
+                    <button onclick="changeQuantity('grapes', -1)">−</button>
+
+                    <span id="grapes-quantity">0</span>
+
+                    <button onclick="changeQuantity('grapes', 1)">+</button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="order-summary">
+
+            <div>
+                <span>Total</span>
+                <strong id="total">₹0</strong>
+            </div>
+
+            <button class="order-button" onclick="placeOrder()">
+                🛒 Place Order
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 FruitBasket
+        </p>
+
+        <p>
+            Fresh fruits. Simple ordering. Local delivery.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        const prices = {
+            apple: 120,
+            banana: 60,
+            orange: 90,
+            grapes: 140
+        };
+
+        const quantities = {
+            apple: 0,
+            banana: 0,
+            orange: 0,
+            grapes: 0
+        };
+
+
+        function changeQuantity(fruit, amount) {
+
+            quantities[fruit] += amount;
+
+            if (quantities[fruit] < 0) {
+                quantities[fruit] = 0;
+            }
+
+            document.getElementById(
+                fruit + "-quantity"
+            ).textContent = quantities[fruit];
+
+            calculateTotal();
+        }
+
+
+        function calculateTotal() {
+
+            let total = 0;
+
+            total += quantities.apple * prices.apple;
+            total += quantities.banana * prices.banana;
+            total += quantities.orange * prices.orange;
+            total += quantities.grapes * prices.grapes;
+
+            document.getElementById("total").textContent =
+                "₹" + total;
+        }
+
+
+        function placeOrder() {
+
+            let total =
+                quantities.apple * prices.apple +
+                quantities.banana * prices.banana +
+                quantities.orange * prices.orange +
+                quantities.grapes * prices.grapes;
+
+            if (total === 0) {
+
+                alert("Please select at least one fruit.");
+
+                return;
+            }
+
+            alert(
+                "Your order total is ₹" +
+                total +
+                ". Payment system coming next!"
+            );
+        }
+
+    </script>
+
+</body>
+</html>
