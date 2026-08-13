@@ -217,27 +217,134 @@
         }
 
 
-        function placeOrder() {
+        
 
-            let total =
-                quantities.apple * prices.apple +
-                quantities.banana * prices.banana +
-                quantities.orange * prices.orange +
-                quantities.grapes * prices.grapes;
 
-            if (total === 0) {
 
-                alert("Please select at least one fruit.");
+async function placeOrder() {
 
-                return;
+    let total =
+        quantities.apple * prices.apple +
+        quantities.banana * prices.banana +
+        quantities.orange * prices.orange +
+        quantities.grapes * prices.grapes;
+
+
+    if (total === 0) {
+
+        alert("Please select at least one fruit.");
+
+        return;
+    }
+
+let name = prompt("Enter your name:");
+
+    if (!name) {
+        return;
+    }
+
+
+    let house = prompt("Enter your house / flat number:");
+
+    if (!house) {
+        return;
+    }
+
+
+    let phone = prompt("Enter your phone number:");
+
+    if (!phone) {
+        return;
+    }
+
+
+    const WEB_APP_URL =
+        "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnRXqpBasQRslQ4bP-gnVLMBJndTDiKhnCnrCK_T0ACjoaSaafSAFm31n80Q6jcaqb10dwAE1jquq-PTsCdRBavyQ-K1hfk5XUP3IFxOBZ3zvg0AOShqoe8vMidnICzgzeoibkRfTV4xoa9Y4I5gprH5wFdUhjHKQUQegVlXFNbP3iy-f_pTMjUXJZKVB-CGs1WFvGrY_jfazOvLQtBKNX4Dmc-wyvFgOYS_Acf5j8IwnJPMVyDmo3qFt08UD2emiWuhGLr6tOAemLjoBcbSYoUU5Nc2vg&lib=MN-w4F1VnVYTE4nL0xtab1FUK6YOVIlBQ";
+
+
+    const orderData = {
+
+        name: name,
+        house: house,
+
+        phone: phone,
+
+        apple: "Apple",
+
+        appleQty: quantities.apple,
+
+        banana: "Banana",
+
+        bananaQty: quantities.banana,
+
+        orange: "Orange",
+
+        orangeQty: quantities.orange,
+
+        grapes: "Grapes",
+
+        grapesQty: quantities.grapes,
+
+        total: total
+
+    };
+
+
+    try {
+
+        const response = await fetch(
+            WEB_APP_URL,
+            {
+                method: "POST",
+
+                body: JSON.stringify(orderData)
             }
+        );
+
+
+        const result = await response.json();
+
+
+        if (result.success) {
 
             alert(
-                "Your order total is ₹" +
-                total +
-                ". Payment system coming next!"
+                "Order created successfully! 🎉\n\n" +
+                "Your Order ID is:\n" +
+                result.orderId
             );
+
+        } else {
+
+            alert(
+                "Something went wrong.\n\n" +
+                result.error
+            );
+
         }
+
+
+    } catch (error) {
+
+        alert(
+            "Unable to connect to FruitBasket server.\n\n" +
+            "Please try again."
+        );
+
+        console.error(error);
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+        
 
     </script>
 
